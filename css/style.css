@@ -14,6 +14,13 @@ header {
 	margin: 0 var(--spacing-sm);
 	width: 100px;
 	aspect-ratio: 16 / 9;
+
+	border-radius: var(--border-radius-sm);
+
+	background: transparent;
+	backdrop-filter: blur(2px);
+
+	object-fit: contain;
 }
 
 /* ASIDE / NAV */
@@ -237,6 +244,22 @@ body {
 	);
 }
 
+.white-inverse-border {
+	width: 100%;
+	height: calc(var(--spacing-reverse-border-radius) + var(--spacing-header));
+
+	position: absolute;
+	z-index: var(--z-dropdown);
+
+	position-anchor: --slider;
+	bottom: calc(anchor(top) - var(--spacing-reverse-border-radius));
+
+	border-radius: var(--border-radius-lg);
+
+	background: var(--color-bg-primary);
+	box-shadow: 0 5px 10px hsl(from var(--color-bg-dark) h s l / 0.2);
+}
+
 /* HERO SLIDER */
 
 .hero_slider_container {
@@ -253,25 +276,10 @@ body {
 	overflow-x: hidden;
 
 	anchor-name: --slider;
-
-	&::before {
-		content: '';
-
-		position: absolute;
-		top: 0;
-		inset-inline: 0;
-		z-index: var(--z-dropdown);
-
-		height: var(--spacing-reverse-border-radius);
-		border-radius: 0 0 var(--border-radius-full) var(--border-radius-full);
-
-		background: var(--color-bg-primary);
-		box-shadow: 0 5px 10px hsl(from var(--color-bg-dark) h s l / 0.2);
-	}
 }
 
 .bg-slider-next-sect {
-	position:fixed;
+	position: absolute;
 
 	position-anchor: --slider;
 	inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
@@ -414,7 +422,11 @@ body {
 /* PLANS */
 
 .plans_container {
+	--color-primary-dark: hsl(from var(--color-primary) h s calc(l - 15));
+
 	display: grid;
+	grid-template-columns: if(media(width <= 425px): 1fr; else: repeat(3, 1fr) ;);
+
 	justify-items: center;
 	align-items: center;
 	justify-content: center;
@@ -422,31 +434,96 @@ body {
 
 	gap: var(--spacing-lg);
 
-	padding-block: var(--spacing-2xl);
-	background: var(--color-primary);
+	padding-block: var(--spacing-xl) var(--spacing-2xl);
+	background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-bg-primary)) 70%;
+
+	.plans-title {
+		font-size: calc(var(--font-size-3xl) * 1.5);
+		font-family: var(--font-family-heading);
+		font-weight: var(--font-weight-bold);
+		text-transform: uppercase;
+
+		color: var(--color-text-inverse);
+		-webkit-text-stroke: 0.5px var(--color-primary-dark);
+		filter: drop-shadow(0 5px var(--color-primary-dark))
+			drop-shadow(0 5px 3px rgba(0, 0, 0, 0.2));
+	}
 }
 
 .wrapper_card {
+
 	display: grid;
 	justify-items: center;
 	align-items: center;
 	justify-content: center;
 	align-content: center;
 
+	gap: var(--spacing-md);
+
 	text-align: center;
 
 	width: 100%;
 	max-width: 80%;
+	padding-bottom: var(--spacing-lg);
+	border-radius: var(--border-radius-lg);
 
-	img {
-		height: 100px;
-		aspect-ratio: 1;
-		object-fit: cover;
+	background: var(--color-bg-primary);
+	border: 2px solid hsl(from var(--color-primary) h s calc(l - 15));
+	box-shadow: 0 10px hsl(from var(--color-primary) h s calc(l - 15)), 0 10px 10px hsl(from var(--color-bg-dark) h s l / 0.3);
 
-		border-radius: var(--border-radius-full);
+	overflow: hidden;
+
+	.image_container_card {
+		position: relative;
+
+		& img {
+			position: relative;
+	
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+		}
+
+		&::after {
+			content: '';
+
+			position: absolute;
+			inset: 0;
+
+			width: 100%;
+			height: 100%;
+
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+		}
+
+	}
+
+	.card-title {
+		font-size: var(--font-size-xl);
+		text-transform: uppercase;
+		font-weight: var(--font-weight-bold);
+		color: var(--color-accent);
+
+		--color-3d-border: hsl(from var(--color-accent) h s calc(l - 40));
+
+		-webkit-text-stroke: 0.5px var(--color-3d-border);
+		filter: drop-shadow(1px 2px var(--color-3d-border))
+			drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.2));
+	}
+
+	.card-desc {
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-light);
+		color: var(--color-text-secondary);
+
+		padding-inline: var(--spacing-lg);
+
+		&::after,
+		&::before {
+			content: "\"";
+		}
 	}
 }
-
 
 /* Celulares médios e grandes */
 @media only screen and (min-width: var(--breakpoint-sm)) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Nerko+One&display=swap');
+
 :root {
 	/* ==================== CORES ==================== */
 	/* Paleta Principal */
@@ -57,8 +59,10 @@
 
 	/* Famílias de Fonte */
 	--font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-	--font-family-heading: inherit;
+	--font-family-heading: var(--font-modak);
 	--font-family-mono: 'Courier New', monospace;
+	--font-nerko-one: "Nerko One", cursive;
+	--font-modak: "Modak", system-ui;
 
 	/* ==================== ESPAÇAMENTOS ==================== */
 	--spacing-xs: 0.25rem;    /* 4px */
