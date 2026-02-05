@@ -10,9 +10,52 @@
 		<link rel="stylesheet" href="./css/style.css" />
     
     <script src="./scripts/loadModularPages.js" defer></script>
+    <script src="./scripts/slider.js" defer></script>
 	</head>
 	<body>
 		<header></header>
 		<aside></aside>
+		<main>
+			<section class="hero_slider_container">
+				<div class="slider_images">
+					<div class="slide">
+						<img src="./assets/images/hero-slide/01.jpg" alt="">
+						<span class="slide_desc">"Se você pode sonhar, você pode realizar" <span class="autor">Walt Disney</span></span>
+					</div>
+					<div class="slide">
+						<img src="./assets/images/hero-slide/02.jpg" alt="">
+						<span class="slide_desc">"O mais importante na animação são as emoções e as ideias que estão sendo retratadas." <span class="autor">Glenn Vilppu</span></span>
+					</div>
+					<div class="slide">
+						<img src="./assets/images/hero-slide/03.jpg" alt="">
+						<span class="slide_desc">"Animação significa evocar a vida, não imitá-la." <span class="autor">Glenn Vilppu</span></span>
+					</div>
+				</div>
+				<div class="slider_nav">
+					<input type="radio" name="nav-hero-slider" class="hero-slider-radio" data-index="0" checked>
+					<input type="radio" name="nav-hero-slider" class="hero-slider-radio" data-index="1">
+					<input type="radio" name="nav-hero-slider" class="hero-slider-radio" data-index="2">
+				</div>
+			</section>
+			<div class="bg-slider-next-sect"></div>
+			<section class="plans_container">
+				<h2 class="plans-title">planos</h2>
+				<div class="wrapper_card">
+					<img src="./assets/images/plans/stop-motion.webp" alt="">
+					<h2 class="card-title">stop motion</h2>
+					<p class="card-desc">Animação quadro a quadro com objetos físicos. Cada fotograma é capturado individualmente, criando a ilusão de movimento ao reproduzir as imagens em sequência.</p>
+				</div>
+				<div class="wrapper_card">
+					<img src="./assets/images/plans/2d-animation.webp" alt="">
+					<h2 class="card-title">animação 2d</h2>
+					<p class="card-desc">Desenho animado digital criado em ambiente bidimensional. Combina técnicas tradicionais de desenho com ferramentas digitais para criar animações fluidas e expressivas.</p>
+				</div>
+				<div class="wrapper_card">
+					<img src="./assets/images/plans/3d-animation.webp" alt="">
+					<h2 class="card-title">animação 3d</h2>
+					<p class="card-desc">Animação tridimensional computadorizada que cria objetos e cenas em ambiente 3D. Oferece profundidade, realismo e possibilidades ilimitadas de criatividade visual.</p>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>

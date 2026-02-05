@@ -1,9 +1,10 @@
 const modulars = {
-	header: `<img
-	src="./assets/images/logos/logo-typo.png"
-	alt="Animation Club logo tipográfica"
-	class="logo"
-/>
+	header: `<h1 class="site-title">
+    <a href="/index.html" class="logo-link">
+        <img src="./assets/images/logos/logo-typo.png" alt="Animation Club" class="logo" />
+        <span class="sr-only">Animation Club</span>
+    </a>
+</h1>
 `.trim(),
 	aside: `<div class="open_nav">
 	<input type="checkbox" id="open_nav_check" />
