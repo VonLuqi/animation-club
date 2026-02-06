@@ -42,6 +42,8 @@ aside {
 
 	transition: var(--transition-time-slow) var(--transition-ease-out-circle);
 	transition-property: transform;
+
+	pointer-events: none;
 }
 
 .open_nav {
@@ -73,6 +75,8 @@ aside {
 
 	position: absolute;
 	inset: 0;
+
+	pointer-events: auto;
 }
 
 aside:has(#open_nav_check:checked) {
@@ -104,6 +108,8 @@ aside:has(#open_nav_check:checked) .open_nav {
 
 	transition: var(--transition-time-slow) linear;
 	transition-property: box-shadow;
+
+	pointer-events: auto;
 }
 
 aside:has(#open_nav_check:checked) .container_aside_nav {
@@ -435,7 +441,12 @@ body {
 	gap: var(--spacing-lg);
 
 	padding-block: var(--spacing-xl) var(--spacing-2xl);
-	background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-bg-primary)) 70%;
+	background: linear-gradient(
+			to bottom,
+			var(--color-primary) 0%,
+			var(--color-bg-primary)
+		)
+		70%;
 
 	.plans-title {
 		font-size: calc(var(--font-size-3xl) * 1.5);
@@ -451,7 +462,6 @@ body {
 }
 
 .wrapper_card {
-
 	display: grid;
 	justify-items: center;
 	align-items: center;
@@ -469,7 +479,9 @@ body {
 
 	background: var(--color-bg-primary);
 	border: 2px solid hsl(from var(--color-primary) h s calc(l - 15));
-	box-shadow: 0 10px hsl(from var(--color-primary) h s calc(l - 15)), 0 10px 10px hsl(from var(--color-bg-dark) h s l / 0.3);
+	box-shadow:
+		0 10px hsl(from var(--color-primary) h s calc(l - 15)),
+		0 10px 10px hsl(from var(--color-bg-dark) h s l / 0.3);
 
 	overflow: hidden;
 
@@ -478,7 +490,7 @@ body {
 
 		& img {
 			position: relative;
-	
+
 			width: 100%;
 			aspect-ratio: 16 / 9;
 			object-fit: cover;
@@ -493,15 +505,19 @@ body {
 			width: 100%;
 			height: 100%;
 
-			background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+			background: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0),
+				rgba(0, 0, 0, 0.5)
+			);
 		}
-
 	}
 
 	.card-title {
 		font-size: var(--font-size-xl);
 		text-transform: uppercase;
 		font-weight: var(--font-weight-bold);
+
 		color: var(--color-accent);
 
 		--color-3d-border: hsl(from var(--color-accent) h s calc(l - 40));
@@ -520,7 +536,137 @@ body {
 
 		&::after,
 		&::before {
-			content: "\"";
+			content: '"';
+		}
+	}
+}
+
+/* DEPOIMENTOS */
+
+.depoimentos_container {
+	width: 100%;
+
+	& h3 {
+		text-align: center;
+		text-transform: uppercase;
+		font-size: var(--font-size-3xl);
+		font-weight: var(--font-weight-bold);
+		font-family: var(--font-family-heading);
+
+		color: var(--color-accent);
+
+		--color-3d-border: hsl(from var(--color-accent) h s calc(l - 40));
+
+		-webkit-text-stroke: 0.5px var(--color-3d-border);
+		filter: drop-shadow(1px 2px var(--color-3d-border))
+			drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.2));
+
+		margin-bottom: var(--spacing-md);
+	}
+}
+
+.depoimentos_slider {
+	position: relative;
+
+	width: 100%;
+	height: fit-content;
+
+	overflow: hidden;
+}
+
+.depoimentos {
+	display: flex;
+	align-content: center;
+	justify-content: flex-start;
+
+	width: 100%;
+	height: inherit;
+
+	transform: translateX(calc(var(--index-depoimento) * -100%));
+
+	transition: 400ms var(--transition-ease-out-circle);
+	transition-property: transform;
+}
+
+.wrapper_depoimento {
+	display: grid;
+	grid-template-rows: 100px auto auto;
+
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+
+	padding: var(--spacing-lg) var(--spacing-3xl);
+
+	gap: var(--spacing-sm);
+
+	flex-shrink: 0;
+
+	width: 100%;
+	height: inherit;
+
+	& img {
+		height: 100%;
+		aspect-ratio: 1;
+		object-fit: cover;
+		border-radius: var(--border-radius-full);
+
+		margin-inline: auto;
+	}
+
+	.depoimento-text {
+		font-size: var(--font-size-sm);
+		text-align: center;
+
+		color: var(--color-text-secondary);
+	}
+
+	.stars {
+		display: flex;
+		justify-content: flex-end;
+
+		width: 100%;
+		height: inherit;
+
+		gap: var(--spacing-xs);
+
+		& svg {
+			height: 15px;
+			aspect-ratio: 1;
+
+			fill: hsl(from var(--color-accent) calc(h + 12) s l);
+		}
+	}
+}
+
+.nav_depoimentos {
+	position: absolute;
+
+	inset-inline: var(--spacing-sm);
+	top: 50%;
+	transform: translateY(-50%);
+
+	display: flex;
+	justify-content: space-between;
+
+	& svg {
+		max-width: 45px;
+		aspect-ratio: 1;
+
+		fill: hsl(from var(--color-primary) h s calc(l - 20));
+		opacity: 0.3;
+
+		transition: var(--transition-time-fast) ease;
+		transition-property: opacity, scale;
+
+		&:first-child {
+			rotate: 180deg;
+		}
+
+		&:active {
+			opacity: 0.2;
+			scale: 0.95;
 		}
 	}
 }
