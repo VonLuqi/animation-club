@@ -22,7 +22,7 @@ const modulars = {
 		<img src="${base}assets/images/logos/logo-img.png" alt="" />
 	</div>
 	<ul class="container_nav">
-		<li class="wrapper_item selected">
+		<li class="wrapper_item">
 			<a href="${base}index.html">
 				<svg viewBox="0 0 94 94" xmlns="http://www.w3.org/2000/svg">
 					<path
@@ -134,8 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (!el) continue
 		el.innerHTML = html
 	}
-
-	document.querySelector('.selected')?.classList.remove('selected')
 
 	const page = location.pathname.split('/').pop() || 'index.html'
 	let name = window.functions.text_format(page.replace('.html', ''))

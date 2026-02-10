@@ -432,6 +432,8 @@ body {
 .plans_container {
 	--color-primary-dark: hsl(from var(--color-primary) h s calc(l - 15));
 
+	margin-top: -12px;
+
 	display: grid;
 	grid-template-columns: if(media(width <= 425px): 1fr; else: repeat(3, 1fr) ;);
 
