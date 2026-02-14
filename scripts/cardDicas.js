@@ -19,14 +19,15 @@ const open_dica = (
 		: document
 
 	scopeRoot?.querySelectorAll(`${wrapper}.${cls}`).forEach((el) => {
-		if (el !== content) {
-			el.classList.remove(cls)
-			if (nestedSelector && nestedOpenClass) {
-				el.querySelectorAll(`${nestedSelector}.${nestedOpenClass}`).forEach(
-					(nested) => nested.classList.remove(nestedOpenClass),
-				)
-			}
-		}
+		if (el === content) return
+
+		el.classList.remove(cls)
+
+		if (!nestedSelector && !nestedOpenClass) return
+		
+		el.querySelectorAll(`${nestedSelector}.${nestedOpenClass}`).forEach(
+			(nested) => nested.classList.remove(nestedOpenClass),
+		)
 	})
 
 	const isOpen = content.classList.toggle(cls)

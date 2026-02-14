@@ -1,60 +1,82 @@
-const radios = document.querySelectorAll('.hero-slider-radio')
-const setas = document.querySelectorAll('.seta')
-
-const change_slide = (aux = 1, slider = null, norm = null, property = null, type = null) => {
-  if (!slider || !norm || !property || !type) return
-
-  let indexAtual = 0
-  let slide = null
-
-  if (type === 'radio') {
-    indexAtual = [...radios].findIndex(radio => radio.checked)
-  } else {
-    slide = slider.querySelectorAll('.wrapper_depoimento') 
-    indexAtual = [...slide].findIndex(s => s.classList.contains('active'))
-    slide[indexAtual].classList.remove('active')
-  }
-
-  const nextIndex = (indexAtual + aux + norm) % norm
-
-  if (slide && nextIndex < slide.length) slide[nextIndex].classList.add('active')
-
-  if (type === 'radio') radios[nextIndex].checked = true
-  slider.style.setProperty(`${property}`, nextIndex)
-}
-
 const intervalTime = 6500
-let interval = setInterval(() => {change_slide(1, document.querySelector('.hero_slider_container'), radios.length, '--index-slide', 'radio')}, intervalTime)
-
 const timeoutTime = 15000
-let timeout = null
 
-const call_timeout = () => {
-  clearInterval(interval)
-  clearTimeout(timeout)
+const changeSlide = (direction, slider) => {
+    if (!slider) return
 
-  timeout = setTimeout(() => {
-    interval = setInterval(() => {change_slide(1, document.querySelector('.hero_slider_container'), radios.length, '--index-slide', 'radio')}, intervalTime)
-  },timeoutTime)
+    const property = slider.dataset.sliderProp || '--index'
+    const dots = slider.querySelectorAll('.slider__dot')
+    const items = slider.querySelectorAll('.slider__item')
+
+    if (dots.length) {
+        let indexAtual = [...dots].findIndex(dot => dot.checked)
+        if (indexAtual < 0) indexAtual = 0
+
+        const nextIndex = (indexAtual + direction + dots.length) % dots.length
+        dots[nextIndex].checked = true
+        slider.style.setProperty(property, nextIndex)
+        return
+    }
+
+    if (!items.length) return
+
+    let indexAtual = [...items].findIndex(item => item.classList.contains('active'))
+    if (indexAtual < 0) indexAtual = 0
+
+    items[indexAtual].classList.remove('active')
+
+    const nextIndex = (indexAtual + direction + items.length) % items.length
+    items[nextIndex].classList.add('active')
+	
+    slider.style.setProperty(property, nextIndex)
 }
 
-radios.forEach(radio => {
-  radio.addEventListener('click', () => call_timeout())
+const initSlider = (slider) => {
+    if (!slider) return
 
-  radio.addEventListener('change', (e) => {
-    const indexActual = e.target.dataset.index
+    const mode = slider.dataset.slider || ''
+    const property = slider.dataset.sliderProp || '--index'
+    const dots = slider.querySelectorAll('.slider__dot')
+    const buttons = slider.querySelectorAll('.slider__btn')
 
-    document.querySelector('.hero_slider_container').style.setProperty('--index-slide', indexActual)
-  })
-})
+    const startAuto = () => {
+        clearInterval(slider._intervalId)
+        slider._intervalId = setInterval(() => {
+            changeSlide(1, slider)
+        }, intervalTime)
+    }
 
-setas.forEach(seta => {
-  seta.addEventListener('click', (e) => {
-    const side = e.currentTarget.dataset.side === 'next' ? 1 : -1
-    console.log(`side: ${side}`)
-    const slider = document.querySelector('.depoimentos')
-    const norm = slider.querySelectorAll('.wrapper_depoimento').length
+    const scheduleAuto = () => {
+        clearInterval(slider._intervalId)
+        clearTimeout(slider._timeoutId)
 
-    change_slide(side, slider, norm, '--index-depoimento', 'seta')
-  })
-})
+        slider._timeoutId = setTimeout(() => {
+            startAuto()
+        }, timeoutTime)
+    }
+
+    if (mode.includes('auto') && dots.length) {
+        startAuto()
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', scheduleAuto)
+        dot.addEventListener('change', (e) => {
+            const indexActual = e.target.dataset.index
+            slider.style.setProperty(property, indexActual)
+        })
+    })
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const root = e.currentTarget.closest('.slider')
+            if (!root) return
+
+            const role = e.currentTarget.dataset.sliderRole || e.currentTarget.dataset.side
+            const direction = role === 'next' ? 1 : -1
+            changeSlide(direction, root)
+        })
+    })
+}
+
+document.querySelectorAll('.slider').forEach(initSlider)

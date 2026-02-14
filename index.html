@@ -18,16 +18,16 @@
 		<aside></aside>
 		<main>
 			<div class="white-inverse-border"></div>
-			<section class="hero_slider_container">
-				<div class="slider_images">
-					<div class="slide">
+			<section class="slider slider--hero" data-slider="auto" data-slider-prop="--index-slide">
+				<div class="slider__track">
+					<div class="slider__item">
 						<img src="./assets/images/hero-slide/01.jpg" alt="" />
 						<span class="slide_desc"
 							>"Se você pode sonhar, você pode realizar"
 							<span class="autor">Walt Disney</span></span
 						>
 					</div>
-					<div class="slide">
+					<div class="slider__item">
 						<img src="./assets/images/hero-slide/02.jpg" alt="" />
 						<span class="slide_desc"
 							>"O mais importante na animação são as emoções e as ideias que
@@ -35,7 +35,7 @@
 							<span class="autor">Glenn Vilppu</span></span
 						>
 					</div>
-					<div class="slide">
+					<div class="slider__item">
 						<img src="./assets/images/hero-slide/03.jpg" alt="" />
 						<span class="slide_desc"
 							>"Animação significa evocar a vida, não imitá-la."
@@ -43,24 +43,24 @@
 						>
 					</div>
 				</div>
-				<div class="slider_nav">
+				<div class="slider__nav">
 					<input
 						type="radio"
 						name="nav-hero-slider"
-						class="hero-slider-radio"
+						class="slider__dot"
 						data-index="0"
 						checked
 					/>
 					<input
 						type="radio"
 						name="nav-hero-slider"
-						class="hero-slider-radio"
+						class="slider__dot"
 						data-index="1"
 					/>
 					<input
 						type="radio"
 						name="nav-hero-slider"
-						class="hero-slider-radio"
+						class="slider__dot"
 						data-index="2"
 					/>
 				</div>
@@ -105,9 +105,9 @@
 
 			<section class="depoimentos_container">
 				<h3>depoimentos</h3>
-				<div class="depoimentos_slider">
-					<div class="depoimentos">
-						<div class="wrapper_depoimento active" data-index="0">
+				<div class="slider slider--testimonials" data-slider="manual" data-slider-prop="--index-depoimento">
+					<div class="slider__track">
+						<div class="slider__item wrapper_depoimento active" data-index="0">
 							<img src="./assets/images/portraits/01.jpg" alt="" />
 							<p class="depoimento-text">
 								"O Animation Club transformou minha paixão por animação em
@@ -142,7 +142,7 @@
 								</svg>
 							</div>
 						</div>
-						<div class="wrapper_depoimento" data-index="1">
+						<div class="slider__item wrapper_depoimento" data-index="1">
 							<img src="./assets/images/portraits/02.jpg" alt="" />
 							<p class="depoimento-text">
 								"Nunca pensei que conseguiria dominar animação 3D, mas com a
@@ -177,7 +177,7 @@
 								</svg>
 							</div>
 						</div>
-						<div class="wrapper_depoimento" data-index="2">
+						<div class="slider__item wrapper_depoimento" data-index="2">
 							<img src="./assets/images/portraits/03.jpg" alt="" />
 							<p class="depoimento-text">
 								"O melhor lugar para aprender animação com pessoas que realmente
@@ -213,10 +213,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="nav_depoimentos">
+					<div class="slider__nav nav_depoimentos">
 						<svg
-							class="seta"
+							class="slider__btn"
 							data-side="prev"
+							data-slider-role="prev"
 							viewBox="0 0 64 64"
 							xmlns="http://www.w3.org/2000/svg"
 						>
@@ -225,8 +226,9 @@
 							/>
 						</svg>
 						<svg
-							class="seta"
+							class="slider__btn"
 							data-side="next"
+							data-slider-role="next"
 							viewBox="0 0 64 64"
 							xmlns="http://www.w3.org/2000/svg"
 						>

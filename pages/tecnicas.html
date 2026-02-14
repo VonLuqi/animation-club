@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
+	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Animation Club: Técnicas</title>
@@ -13,10 +13,331 @@
 		<script src="../scripts/loadModularPages.js" defer></script>
 		<script src="../scripts/slider.js" defer></script>
 	</head>
-<body>
-  <header></header>
-  <aside></aside>
-  <main></main>
-  <footer></footer>
-</body>
+	<body>
+		<header></header>
+		<aside></aside>
+		<main>
+			<section class="introduction">
+				<h1>técnicas de animação</h1>
+				<h2>
+					Fundamentos e princípios essenciais para criar movimento convincente.
+				</h2>
+			</section>
+			<section class="principles">
+				<div class="cards_container">
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/squash-and-stretch.gif" alt="" />
+								</div>
+								<div class="slider__item">
+									<img src="../assets/gifs/squash-and-stretch_02.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_01"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+								<input
+									type="radio"
+									name="slider_principles_01"
+									class="slider__dot"
+									data-index="1"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Squash & Stretch (Deformação e Estiramento)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							A técnica de squash and stretch é fundamental para dar vida aos personagens. Quando um objeto se move ou bate em algo, ele se deforma momentaneamente, criando a ilusão de peso, flexibilidade e impacto. Um salto, por exemplo, comprime o corpo ao pousar (squash) e o estica ao subir (stretch).
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Mantém a proporção geral (volume)</li>
+							<li>Exagera deformações para efeitos mais dramáticos</li>
+							<li>Essencial para emoções faciais</li>
+							<li>Evita movimentos rígidos e artificiais</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/antecipation.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_02"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Anticipation (Antecipação)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Antes de uma ação principal, o personagem faz um pequeno movimento preparatório. Por exemplo, antes de pular, o personagem agacha; antes de arremessar, puxa o braço para trás. A antecipação prepara o espectador para o que vem a seguir e torna a ação mais clara e impactante.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Prepara visualmente a ação próxima</li>
+							<li>Aumenta a sensação de peso e inércia</li>
+							<li>Pode ser sutil ou exagerada conforme o estilo</li>
+							<li>Fundamental em cenas de combate e acrobacias</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/staging.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_03"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Staging (Encenação)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Staging é a arte de organizar a cena para que o espectador entenda claramente o que está acontecendo. Envolve posicionamento de câmera, iluminação, composição de personagens e uso do espaço. Uma boa encenação garante que a ação principal seja sempre o foco.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Uso eficiente do espaço de tela</li>
+							<li>Silhuetas claras para leitura de pose</li>
+							<li>Hierarquia visual (elemento importante em destaque)</li>
+							<li>Evita confusão visual e ações competitivas</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/timing-&-spacing.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_04"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Timing & Spacing (Tempo e Espaçamento)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Timing é a duração de uma ação — quanto tempo leva para acontecer. Spacing é a distribuição de quadros entre dois pontos. Juntos, controlam a velocidade, ritmo e sensação de peso. Ações rápidas (poucos quadros) parecem leves; ações lentas (muitos quadros) parecem pesadas ou deliberadas.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Timing correto define o tipo de movimento</li>
+							<li>Spacing uniforme = movimento constante</li>
+							<li>Spacing variável = movimento natural (aceleração/desaceleração)</li>
+							<li>24fps (cinema) vs 12fps (animação TV) vs 8fps (stop-motion)</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/follow-through-&-overlapping-action.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_05"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Follow Through & Overlapping Action (Continuidade e Ações Sobrepostas)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Nem tudo para ao mesmo tempo. Follow through é quando partes do corpo continuam se movendo após a ação principal parar (cabelos, roupas, cauda). Overlapping action é quando ações diferentes acontecem em tempos diferentes — por exemplo, o torso vira antes do braço, que vira antes da mão.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Cria fluidez natural</li>
+							<li>Roupas e acessórios reagem após a parada principal</li>
+							<li>Demonstra flexibilidade e articulação</li>
+							<li>Essencial para emoções contínuas</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/arcs.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_06"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Arcs (Arcos de Movimento)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							A maioria dos movimentos naturais segue um caminho curvo, não reto. Um braço balançando, uma bola sendo arremessada, um personagem andando — todos seguem arcos. Arcos dão movimento elegância e naturalidade, evitando movimentos mecânicos.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Arcos suaves = movimento elegante</li>
+							<li>Arcos angulares = movimento robótico ou agressivo</li>
+							<li>Aplicável a movimentos de câmera também</li>
+							<li>Fundamental em dança e coreografia</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/secondary-action.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_07"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Secondary Action (Ação Secundária)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Ações menores que apoiam a ação principal, adicionando profundidade e personalidade. Enquanto um personagem anda (ação principal), ele pisca, balança os braços e mexe a cabeça (ações secundárias). Estas não distraem, mas enriquecem.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Subtil e apoiadora</li>
+							<li>Não compete com a ação principal</li>
+							<li>Adiciona nuances e personalidade</li>
+							<li>Economiza tempo de produção se bem executada</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/exaggeration.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_08"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Exaggeration (Exagero)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							A animação não copia a realidade, a interpreta. O exagero libera o animador para amplificar emoções, expressar caráteres e criar um estilo visual único. Um soco pode ser mais rápido, uma queda mais dramática, uma reação mais visível.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Diferencia "realista" de "cartoon"</li>
+							<li>Aumenta legibilidade em telas pequenas</li>
+							<li>Comunica emoção de forma clara</li>
+							<li>Permite criar um estilo único</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/appeal.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_09"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Appeal (Apelo Visual)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Appeal é a qualidade que torna um personagem ou movimento visualmente atraente e "simpático". Envolve design, proporções agradáveis, movimentos fluidos e personalidade clara. Um personagem com apelo é aquele que o espectador quer acompanhar.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Design de personagem bem-pensado</li>
+							<li>Movimentos confiantes e limpos</li>
+							<li>Expressão facial e corporal consistente</li>
+							<li>Diferencia amador de profissional</li>
+						</ul>
+					</div>
+					<div class="card_wrapper">
+						<div class="slider slider--principles" data-slider="auto" data-slider-prop="--index-slide">
+							<div class="slider__track">
+								<div class="slider__item">
+									<img src="../assets/gifs/solid-drawing.gif" alt="" />
+								</div>
+							</div>
+							<div class="slider__nav">
+								<input
+									type="radio"
+									name="slider_principles_09"
+									class="slider__dot"
+									data-index="0"
+									checked
+								/>
+							</div>
+						</div>
+						<h2 class="title_card_principles">Solid Drawing (Desenho Sólido)</h2>
+						<p class="desc_title_card_principles">Descrição:</p>
+						<h3 class="desc_card_principles">
+							Para 2D, manter consistência volumétrica é crucial. O personagem deve ter a mesma proporção, peso e volume em todos os ângulos. Para 3D, a modelagem deve ter anatomia correta. Desenho/modelagem sólida é a base para todas as outras técnicas.
+						</h3>
+						<p class="desc_title_card_principles">Pontos-chave:</p>
+						<ul class="list_card_principles">
+							<li>Anatomia consistente</li>
+							<li>Proporções mantidas em poses diferentes</li>
+							<li>Volumes bem definidos</li>
+							<li>Estilos funcionam melhor com fundação sólida</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+	</body>
 </html>
