@@ -746,6 +746,8 @@ footer {
 	& h2 {
 		font-size: var(--font-size-xs);
 		color: var(--color-text-light);
+
+		padding-inline: var(--spacing-sm);
 	}
 }
 
@@ -1137,8 +1139,11 @@ footer {
 
 	--gap-materials: var(--spacing-2xl);
 
-	padding-block: var(--spacing-xl) var(--spacing-2xl);
+	padding-block: var(--spacing-lg) var(--spacing-2xl);
+	margin-top: var(--spacing-md);
 	gap: var(--gap-materials);
+
+	border-top: 4px dotted var(--color-accent);
 }
 
 .material_container {
@@ -1350,6 +1355,7 @@ footer {
 					& li {
 						font-size: var(--font-size-xs);
 						color: var(--color-text-light);
+						list-style: circle;
 						list-style-position: inside;
 					}
 				}
