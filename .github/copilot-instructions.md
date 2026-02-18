@@ -7,6 +7,12 @@
 - Styles are centralized in [css/default.css](css/default.css) (tokens, base styles) and [css/style.css](css/style.css) (components and layouts).
 - Behavior is in [scripts/](scripts/) with small focused files.
 
+## Page structure and content
+- **dicas.html**: FAQ-style cards with expandable sections for animator tips and best practices using `.faq_container` pattern.
+- **tecnicas.html**: Principle cards with sliders showing GIFs, descriptions, and key points for animation techniques.
+- **materiais.html**: Gallery of tools and resources organized in grid layout.
+- **regras-do-club.html**: Club rules and membership guidelines with structured sections for different rule categories.
+
 ## Architecture and patterns
 - Header/aside/footer are empty in HTML and populated at runtime from `modulars`.
 - Navigation highlight uses `window.functions.text_format()` to normalize the URL/page name.
@@ -15,8 +21,11 @@
 
 ## How to add or edit pages
 - Start with the existing page shell and keep `header`, `aside`, and `footer` tags present.
-- Always include `functions.js`, `loadModularPages.js`, and `slider.js` if the page uses shared layout or sliders.
+- Always include `functions.js` and `loadModularPages.js` for shared layout injection.
+- Include `slider.js` only if the page features sliders (e.g., principle showcases).
+- Include `cardDicas.js` only if the page uses expandable FAQ cards.
 - Keep page titles consistent: `Animation Club: <PageName>`.
+- Use `.introduction` section with `h1` (main title) and `h2` (subtitle) as the page header.
 
 ## Styling guidelines
 - Reuse CSS variables from [css/default.css](css/default.css) for colors, spacing, typography, and shadows.
@@ -37,10 +46,21 @@
 
 ## Content and accessibility
 - Use meaningful `alt` text for images; empty `alt` only when decorative.
-- Preserve the Portuguese content style in user-facing text.
-- Keep headings hierarchical (`h1`, then `h2`, etc.).
+- PPage naming and patterns
+- Use lowercase, hyphenated filenames for pages (e.g., `regras-do-club.html`).
+- Directory structure: root pages in root directory, pages in [pages/](pages/) subdirectory.
+- Section classes follow semantic structure: `.introduction`, `.dicas`, `.principles`, `.rules`, etc.
+
+## Common component patterns
+- **FAQ/Expandable cards**: Use `.faq_container` within `.wrapper_card_*` for toggleable content (see dicas.html).
+- **Text formatting**: Use `window.functions.text_format()` for consistent text normalization (e.g., navigation matching).
+- **Responsive spacing**: Leverage CSS variables from default.css (--spacing-*, --font-*, --color-*).
 
 ## Testing and validation
+- Open `index.html` in a browser and navigate to each page.
+- Verify the navigation highlight and header/footer injection.
+- Check slider behavior and responsive layout on mobile widths.
+- Ensure all internal links use consistent relative paths (../assets/, ../css/, etc.)
 - Open `index.html` in a browser and navigate to each page.
 - Verify the navigation highlight and header/footer injection.
 - Check slider behavior and responsive layout on mobile widths.
